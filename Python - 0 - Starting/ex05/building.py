@@ -1,5 +1,4 @@
 import sys
-from string import punctuation
 
 
 def get_list_len(li: list) -> int:
@@ -30,14 +29,15 @@ def count_char(line: str, array: list) -> int:
 
 def line_stats(line: str):
     assert type(line) is str, 'line is not a string'
-    upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-             'V', 'W', 'X', 'Y', 'Z']
-    lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-             'v', 'w', 'x', 'y', 'z']
+    upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     spaces = [' ']
-    punctuation = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/',
-            ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~']
+    punctuation = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',',
+                   '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\',
+                   ']', '^', '_', '`', '{', '|', '}', '~']
 
     print('The text contains ', count_all_char(line), 'characters:')
     print(count_char(line, upper), ' upper letters')
@@ -52,7 +52,7 @@ def main():
     assert list_len <= 2, "more than one arg is provided to the program"
     if list_len == 1:
         line = input('>>')
-    else :
+    else:
         line = sys.argv[1]
     line_stats(line)
 
