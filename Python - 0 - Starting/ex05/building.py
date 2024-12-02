@@ -9,6 +9,15 @@ def get_list_len(li: list) -> int:
     return count
 
 
+def print_hex(line: str) -> None:
+    assert type(line) is str, "line is not a string"
+    print('[', line, ']')
+    b = line.encode('ascii')
+    # Convert each byte to a two-digit hex string and join them with spaces
+    hex_string = ' '.join('{:02x}'.format(byte) for byte in b)
+    print(hex_string)
+
+
 def count_all_char(line: str) -> int:
     assert type(line) is str, "line is not a string"
     count = 0
@@ -51,7 +60,11 @@ def main():
     list_len = get_list_len(sys.argv)
     assert list_len <= 2, "more than one arg is provided to the program"
     if list_len == 1:
-        line = input('>>')
+        print('What is the text to count?')
+        line = sys.stdin.readline()
+        if '\r' in line:
+            line = line.replace('\r', ' ')
+            print('carriage return')
     else:
         line = sys.argv[1]
     line_stats(line)
